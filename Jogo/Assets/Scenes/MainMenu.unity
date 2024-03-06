@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 8189871}
   - component: {fileID: 8189870}
   m_Layer: 0
-  m_Name: "Paredes invis\xEDveis do menu"
+  m_Name: "Paredes invis\xEDveis"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
