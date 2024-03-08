@@ -8,6 +8,7 @@ public class NewBehaviourScript : MonoBehaviour
     public float JumpForce;
     public bool isJumping;
     public bool doubleJump;
+    public bool isFalling;
     private Rigidbody2D rig;
     private Animator anim;
     // Start is called before the first frame update
@@ -22,6 +23,7 @@ public class NewBehaviourScript : MonoBehaviour
     {
         Move();
         Jump();
+        UpdateAnimations();
     }
 
     void Move()
@@ -39,6 +41,8 @@ public class NewBehaviourScript : MonoBehaviour
             transform.eulerAngles = new Vector3(0f, 180f, 0f);  //Mexer no eixo posicional do player
         }
         else anim.SetBool("walk", false);
+        if (rig.velocity.y < 0) isFalling = true;   //Se velocidade em y for negativa, está a cair
+        else isFalling = false;
     }
 
     void Jump()
@@ -55,7 +59,7 @@ public class NewBehaviourScript : MonoBehaviour
             {
                 if(doubleJump)  //Se ativar o Double Jump
                 {
-                    rig.AddForce(new Vector2(0f, JumpForce), ForceMode2D.Impulse);  //Dar o Double Jump
+                    rig.AddForce(new Vector2(0f, JumpForce/3), ForceMode2D.Impulse);  //Dar o Double Jump
                     //anim.SetBool("jump", true); /*NÃO FUNCIONA*/
                     doubleJump = false; //Não é permitido dar (outra vez) Double Jump (opção bloqueada)
                 }
@@ -68,7 +72,9 @@ public class NewBehaviourScript : MonoBehaviour
         if(col_ground.gameObject.layer == 8) //8 é o número da layer em que foi posta a camada do 'chão'
         {
             isJumping = false;  //Para de saltar
+            isFalling = false;
             anim.SetBool("jump", false);
+            anim.SetBool("fall", false);
         }
     }
 
@@ -77,6 +83,29 @@ public class NewBehaviourScript : MonoBehaviour
         if(col_ground.gameObject.layer == 8) //8 é o número da layer em que foi posta a camada do 'chão'
         {
             isJumping = true;   //Começa a saltar
+        }
+    }
+
+    void UpdateAnimations()
+    {
+        // Lógica para atualizar as animações com base no estado de salto e queda
+        if (isJumping)  //Se estiver a saltar (sair do ground), verifica se está a cair, ou a saltar
+        {
+            if (isFalling)  //Se estiver a cair
+            {
+                anim.SetBool("jump", false); // Desativa a animação de subida
+                anim.SetBool("fall", true);  // Ativa a animação de queda
+            }
+            else
+            {
+                anim.SetBool("fall", false); // Desativa a animação de queda
+                anim.SetBool("jump", true);  // Ativa a animação de subida
+            }
+        }
+        else
+        {
+            anim.SetBool("jump", false);
+            anim.SetBool("fall", false);
         }
     }
 }

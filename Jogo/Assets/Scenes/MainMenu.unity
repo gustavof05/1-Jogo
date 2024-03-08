@@ -1813,7 +1813,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 4.9
+  m_GravityScale: 4
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -1838,9 +1838,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 5
-  JumpForce: 12.5
+  JumpForce: 15
   isJumping: 0
   doubleJump: 0
+  isFalling: 0
 --- !u!95 &738155924
 Animator:
   serializedVersion: 5
