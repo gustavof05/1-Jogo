@@ -1877,14 +1877,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e80a40753fdb05748bd72506e9bdf90f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starttimeforAttack: 0.5
+  starttimeforAttack: 0.2
   attackpos: {fileID: 1821827930}
+  attackrange: 1
+  damage: 3
   inimigos:
     serializedVersion: 2
     m_Bits: 512
-  anim: {fileID: 0}
-  attackrange: 1
-  damage: 3
+  attanim: {fileID: 738155924}
+  isAttacking: 0
 --- !u!1 &918318526
 GameObject:
   m_ObjectHideFlags: 0
