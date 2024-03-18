@@ -1884,7 +1884,7 @@ MonoBehaviour:
   inimigos:
     serializedVersion: 2
     m_Bits: 512
-  attanim: {fileID: 738155924}
+  attanim: {fileID: 0}
   isAttacking: 0
 --- !u!1 &918318526
 GameObject:
