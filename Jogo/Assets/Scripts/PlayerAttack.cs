@@ -13,6 +13,7 @@ public class PlayerAttack : MonoBehaviour
     public Animator attanim;
     public bool isAttacking = false;
     public static PlayerAttack instance;
+    public PlayerHurt_Death deathcontroller;
     
     private void Awake()
     {
@@ -28,7 +29,10 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Attack();
+        if(!deathcontroller.isDead)
+        {
+            Attack();
+        }
     }
 
     void Attack()
@@ -51,10 +55,4 @@ public class PlayerAttack : MonoBehaviour
             timeforAttack -= Time.deltaTime;
         }
     }
-
-    /*void void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(attackpos.position, attackrange);
-    }*/
 }

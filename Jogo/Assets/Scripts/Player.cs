@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class Player : MonoBehaviour
 {
     public float Speed;
     public float JumpForce;
@@ -11,6 +11,7 @@ public class NewBehaviourScript : MonoBehaviour
     public bool isFalling;
     private Rigidbody2D rig;
     private Animator anim;
+    public PlayerHurt_Death deathcontroller;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,9 +22,12 @@ public class NewBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move();
-        Jump();
-        UpdateAnimations();
+        if(!deathcontroller.isDead)
+        {
+            Move();
+            Jump();
+            UpdateAnimations();
+        }
     }
 
     void Move()
