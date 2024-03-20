@@ -5,7 +5,15 @@ Shader "Custom/ExactColorSwap"
         _MainTex("Texture", 2D) = "white" {}
         _OriginalColor("Original Color", Color) = (1,1,1,1)
         _TargetColor("Target Color", Color) = (1,1,1,1)
-        _Tolerance("Tolerance", Range(0, 0.01)) = 0.001  
+        _OriginalColor1("Original Color1", Color) = (1,1,1,1)
+        _TargetColor1("Target Color1", Color) = (1,1,1,1)
+        _OriginalColor2("Original Color2", Color) = (1,1,1,1)
+        _TargetColor2("Target Color2", Color) = (1,1,1,1)
+        _OriginalColor3("Original Color3", Color) = (1,1,1,1)
+        _TargetColor3("Target Color3", Color) = (1,1,1,1)
+        _OriginalColor4("Original Color4", Color) = (1,1,1,1)
+        _TargetColor4("Target Color4", Color) = (1,1,1,1)
+        _Tolerance("Tolerance", Range(0, 0.01)) = 0.001
     }
  
     SubShader
@@ -38,6 +46,14 @@ Shader "Custom/ExactColorSwap"
             float4 _MainTex_ST;
             float4 _OriginalColor;
             float4 _TargetColor;
+            float4 _OriginalColor1;
+            float4 _TargetColor1;
+            float4 _OriginalColor2;
+            float4 _TargetColor2;
+            float4 _OriginalColor3;
+            float4 _TargetColor3;
+            float4 _OriginalColor4;
+            float4 _TargetColor4;
             float _Tolerance;
  
             v2f vert(appdata v)
@@ -60,6 +76,22 @@ Shader "Custom/ExactColorSwap"
                 if (length(col - _OriginalColor) < _Tolerance)
                 {
                     return half4(_TargetColor.rgb, col.a);
+                }
+                if (length(col - _OriginalColor1) < _Tolerance)
+                {
+                    return half4(_TargetColor1.rgb, col.a);
+                }
+                if (length(col - _OriginalColor2) < _Tolerance)
+                {
+                    return half4(_TargetColor2.rgb, col.a);
+                }
+                if (length(col - _OriginalColor3) < _Tolerance)
+                {
+                    return half4(_TargetColor3.rgb, col.a);
+                }
+                if (length(col - _OriginalColor4) < _Tolerance)
+                {
+                    return half4(_TargetColor4.rgb, col.a);
                 }
  
                 return col;

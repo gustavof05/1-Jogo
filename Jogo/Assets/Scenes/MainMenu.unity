@@ -1934,7 +1934,6 @@ GameObject:
   - component: {fileID: 738155925}
   - component: {fileID: 738155927}
   - component: {fileID: 738155928}
-  - component: {fileID: 738155926}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -2143,24 +2142,6 @@ MonoBehaviour:
   attanim: {fileID: 0}
   isAttacking: 0
   deathcontroller: {fileID: 738155928}
---- !u!114 &738155926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 738155918}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e3fab4f60695b14c9a85e1b2c51ecaf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_sourceColors:
-  - {r: 0.007843138, g: 0.14901961, b: 0.3372549, a: 1}
-  - {r: 0.16862746, g: 0.28235295, b: 0.5529412, a: 1}
-  m_newColors:
-  - {r: 0.16552876, g: 0.3372549, b: 0.007843141, a: 1}
-  - {r: 0.35132772, g: 0.5529412, b: 0.16862743, a: 1}
 --- !u!114 &738155927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2623,7 +2604,7 @@ Transform:
   m_GameObject: {fileID: 1303201466}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.074, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
