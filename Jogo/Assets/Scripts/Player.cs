@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!deathcontroller.isDead)
+        if(!deathcontroller.isDead) //Se não estiver morto
         {
             Move();
             Jump();

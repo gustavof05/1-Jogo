@@ -16,7 +16,7 @@ public class PlayerBlock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!deathcontroller.isDead)
+        if(!deathcontroller.isDead) //Se não estiver morto
         {
             Block();
         }

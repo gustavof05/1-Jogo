@@ -2132,7 +2132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e80a40753fdb05748bd72506e9bdf90f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starttimeforAttack: 0.1
+  starttimeforAttack: 0.2
   attackpos: {fileID: 1821827930}
   attackrange: 1
   damage: 3

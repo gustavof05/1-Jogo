@@ -96,10 +96,7 @@ Shader "Custom/ExactColorSwap"
  
                 return col;
             }
- 
             ENDCG
         }
- 
- 
     }
 }
