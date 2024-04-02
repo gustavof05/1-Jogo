@@ -24,7 +24,7 @@ public class PlayerBlock : MonoBehaviour
 
     void Block()
     {
-        if(Input.GetMouseButtonDown(1)) //Se o botão for premido e não estiver a defender
+        if(Input.GetMouseButtonDown(1)) //Enquanto o botão for premido
         {
             blanim.SetTrigger("block");
             blanim.SetBool("isBlocking", true); //Está a defender
