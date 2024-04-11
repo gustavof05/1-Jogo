@@ -12,13 +12,13 @@ public class PlayerAttack : MonoBehaviour
     private float timesinceAttack = 0.55f;   //Tempo desde o último ataque (inicial)
     private int attackIndex = 1;
     private Animator attanimp;
-    //public static PlayerAttack instance;
+    public static PlayerAttack instance;
     public PlayerHurt_Death deathcontroller;
     
-    /*private void Awake()
+    private void Awake()
     {
         instance = this;
-    }*/
+    }
 
     // Start is called before the first frame update
     void Start()

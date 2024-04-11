@@ -12,9 +12,8 @@ public class Enemy : MonoBehaviour
     public LayerMask alvos;  //Camada onde estão os inimigos (para só "acertar" neles)
     public bool EnemyAttacking = false;
     private float timesinceAttack = 0.55f;   //Tempo desde o último ataque (inicial)
-    private float c = 0f;
+    private int d = 1;  //Ajustar animação
     private Animator anime;
-    public PlayerAttack p;
 
     // Start is called before the first frame update
     void Start()
@@ -27,21 +26,33 @@ public class Enemy : MonoBehaviour
     {
         Move();
         Attack();
-        Death();
+        if(ehealth <= 0) Death();
     }
 
     void Move()
     {
-        //anime.SetBool("walk", true);
         //transform.Translate(Vector2.left * speed * Time.deltaTime);
+        //Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
+        //transform.position += movement * Time.deltaTime * Speed;
+        if(Input.GetAxis("Horizontal") > 0f)
+        {
+            anime.SetBool("walk", true);
+            transform.eulerAngles = new Vector3(0f, 0f, 0f);    //Mexer no eixo posicional do player
+        }
+        else if(Input.GetAxis("Horizontal") < 0f)
+        {
+            anime.SetBool("walk", true);
+            transform.eulerAngles = new Vector3(0f, 180f, 0f);  //Mexer no eixo posicional do player
+        }
+        else anime.SetBool("walk", false);
     }
 
     public void TakeDamage(int pdamage)
     {
         //Instantiate(transform.position, Quaternion.identity);
-            ehealth -= pdamage;   //Vida do inimigo perde o valor do dano do player
-            anime.SetTrigger("hurt");
-            Debug.Log("damage taken from player");
+        ehealth -= pdamage;   //Vida do inimigo perde o valor do dano do player
+        anime.SetTrigger("hurt");
+        Debug.Log("damage taken from player");
     }
 
     void Attack()
@@ -50,8 +61,8 @@ public class Enemy : MonoBehaviour
         {
             EnemyAttacking = true;
             anime.SetTrigger("attack"); //"Dispara" o parâmetro attack
-            /*Collider2D[] playersToDamage = Physics2D.OverlapCircleAll(attackpos.position, attackrange, alvos);   //Nº de inimigos (cada entidade) no "círculo"
-            for(int i = 0; playersToDamage.Length; i++)
+            Collider2D[] playersToDamage = Physics2D.OverlapCircleAll(attackpos.position, attackrange, alvos);   //Nº de inimigos (cada entidade) no "círculo"
+            /*for(int i = 0; playersToDamage.Length; i++)
             {
                 playersToDamage[i].GetComponent<Player 1>().TakeDamage(edamage);
             }*/
@@ -62,14 +73,8 @@ public class Enemy : MonoBehaviour
 
     public void Death()
     {
-        if(ehealth <= 0)
-        {
-            anime.SetTrigger("death");
-            /*for(c =0f; c <= 0.35f; c += Time.deltaTime) 
-            {
-                Destroy(gameObject);   //Desaparecimento do inimigo
-                c = 0f;
-            }*/
-        }
+        if(d == 1) anime.SetTrigger("death");
+        d++;
+        Destroy(gameObject, 0.7f); //Desaparecimento do inimigo
     }
 }

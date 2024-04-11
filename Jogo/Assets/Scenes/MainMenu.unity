@@ -4897,8 +4897,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDead: 0
-  p: {fileID: 0}
-  e: {fileID: 0}
+  p: {fileID: 738155925}
 --- !u!1 &738918674
 GameObject:
   m_ObjectHideFlags: 0
@@ -6410,7 +6409,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   EnemyAttacking: 0
-  p: {fileID: 0}
 --- !u!61 &1290120719
 BoxCollider2D:
   m_ObjectHideFlags: 0

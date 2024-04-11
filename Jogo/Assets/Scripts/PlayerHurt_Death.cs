@@ -7,7 +7,6 @@ public class PlayerHurt_Death : MonoBehaviour
     private Animator hdanim;
     public bool isDead = false;
     public PlayerAttack p;
-    public Enemy e;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +17,7 @@ public class PlayerHurt_Death : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!isDead) Death();
+        if(!isDead && (p.phealth <= 0)) Death();
     }
 
     public void TakeDamage(int edamage)
@@ -33,10 +32,7 @@ public class PlayerHurt_Death : MonoBehaviour
 
     void Death()
     {
-        if (p.phealth <= 0)
-        {
-            hdanim.SetTrigger("death");
-            isDead = true;  //Está morto
-        }
+        hdanim.SetTrigger("death");
+        isDead = true;  //Está morto
     }        
 }
