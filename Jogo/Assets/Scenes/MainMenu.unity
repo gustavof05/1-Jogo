@@ -536,7 +536,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 180, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &52389477
 MonoBehaviour:
@@ -612,7 +612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1215,6 +1215,7 @@ GameObject:
   - component: {fileID: 274946074}
   - component: {fileID: 274946075}
   - component: {fileID: 274946081}
+  - component: {fileID: 274946082}
   m_Layer: 5
   m_Name: MainMenuButtons
   m_TagString: Buttons
@@ -1236,6 +1237,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainMenuButtons: {fileID: 274946073}
   Levels: {fileID: 1157837927}
+  DescerLMenu: {fileID: 1157837932}
+  DescerMMenu: {fileID: 274946082}
 --- !u!114 &274946075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1332,8 +1335,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -87.50001, y: 25}
-  m_SizeDelta: {x: -275, y: -250}
+  m_AnchoredPosition: {x: 0, y: 425}
+  m_SizeDelta: {x: 0, y: 550}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &274946081
 MonoBehaviour:
@@ -1347,11 +1350,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 594b9b6414bd0b949842e0db0259f733, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WoodSound:
+  WoodSound: {fileID: 8300000, guid: dd7241a2d49ef464f9810b0c59b9e290, type: 3}
+  WoodSounds:
+  - {fileID: 8300000, guid: 60bc6261810b4414d9f8b801117cefa1, type: 3}
   - {fileID: 8300000, guid: 325a04c08e6692a408e62571c8d575e3, type: 3}
   - {fileID: 8300000, guid: 6fa3994f9959242438896b504c7dbae9, type: 3}
-  - {fileID: 8300000, guid: 60bc6261810b4414d9f8b801117cefa1, type: 3}
   soundFxObject: {fileID: 710918226026504666, guid: ac96396adcbcc3748bb4b45c6ea38e8b, type: 3}
+--- !u!95 &274946082
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274946073}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7ece8f29ec5dc7242ae53d156d3bb36a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &290706272
 GameObject:
   m_ObjectHideFlags: 0
@@ -1963,7 +1988,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 20.01}
+  m_AnchoredPosition: {x: 0, y: 20}
   m_SizeDelta: {x: 884.95, y: 59.99}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &400812076
@@ -1984,7 +2009,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: 50
+  m_Spacing: -6.9
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -4180,7 +4205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -4211,22 +4236,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 274946073}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Game
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1157837927}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 274946074}
+        m_TargetAssemblyTypeName: MenuButtons, Assembly-CSharp
+        m_MethodName: StartGame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4339,7 +4352,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 202.65, y: 50}
+  m_SizeDelta: {x: 180, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &681816105
 GameObject:
@@ -4414,7 +4427,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 2.1314259, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4425,7 +4438,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 1
   serializedVersion: 2
-  m_Size: {x: 150, y: 25}
+  m_Size: {x: 123.57094, y: 25}
   m_EdgeRadius: 0
 --- !u!114 &681816108
 MonoBehaviour:
@@ -4440,7 +4453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -4539,7 +4552,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 180, y: 50}
+  m_SizeDelta: {x: 148.69, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &720316956
 GameObject:
@@ -4854,7 +4867,8 @@ MonoBehaviour:
   OptionsPanel: {fileID: 1348318779}
   MainMenu: {fileID: 274946073}
   Levels: {fileID: 1157837927}
-  delay: 0.5
+  DescerLMenu: {fileID: 1157837932}
+  DescerMMenu: {fileID: 274946082}
   _object: {fileID: 1034448509840778827, guid: 1fb62f81ac242214faa54fcd1aa3b8fb, type: 3}
   WoodSound:
   - {fileID: 8300000, guid: 325a04c08e6692a408e62571c8d575e3, type: 3}
@@ -4899,7 +4913,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 180, y: 50}
+  m_SizeDelta: {x: 150, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &738918676
 MonoBehaviour:
@@ -4953,7 +4967,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 1.705307, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4964,7 +4978,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 1
   serializedVersion: 2
-  m_Size: {x: 150, y: 25}
+  m_Size: {x: 121.01114, y: 25}
   m_EdgeRadius: 0
 --- !u!114 &738918678
 MonoBehaviour:
@@ -4979,7 +4993,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -5010,22 +5024,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1157837927}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 274946073}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 274946074}
+        m_TargetAssemblyTypeName: MenuButtons, Assembly-CSharp
+        m_MethodName: Cancel
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5764,6 +5766,8 @@ GameObject:
   - component: {fileID: 1157837930}
   - component: {fileID: 1157837929}
   - component: {fileID: 1157837928}
+  - component: {fileID: 1157837932}
+  - component: {fileID: 1157837933}
   m_Layer: 5
   m_Name: Levels
   m_TagString: PauseMenu
@@ -5839,9 +5843,46 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 37.49142, y: 350}
+  m_SizeDelta: {x: -74.977165, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1157837932
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157837927}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cf2a83eb7ac37ab4d97bf938513aba98, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1157837933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157837927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 594b9b6414bd0b949842e0db0259f733, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WoodSound: {fileID: 8300000, guid: dd7241a2d49ef464f9810b0c59b9e290, type: 3}
+  WoodSounds:
+  - {fileID: 8300000, guid: dd7241a2d49ef464f9810b0c59b9e290, type: 3}
+  soundFxObject: {fileID: 710918226026504666, guid: ac96396adcbcc3748bb4b45c6ea38e8b, type: 3}
 --- !u!1 &1173333933
 GameObject:
   m_ObjectHideFlags: 0
@@ -7214,7 +7255,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.2936039, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -7225,7 +7266,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 1
   serializedVersion: 2
-  m_Size: {x: 150, y: 25}
+  m_Size: {x: 128.42085, y: 25}
   m_EdgeRadius: 0
 --- !u!114 &1355502110
 MonoBehaviour:
@@ -7240,7 +7281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -7399,7 +7440,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 180, y: 50}
+  m_SizeDelta: {x: 150, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1380763195
 GameObject:
@@ -7679,10 +7720,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 594b9b6414bd0b949842e0db0259f733, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WoodSound:
-  - {fileID: 8300000, guid: 325a04c08e6692a408e62571c8d575e3, type: 3}
-  - {fileID: 8300000, guid: 6fa3994f9959242438896b504c7dbae9, type: 3}
-  - {fileID: 8300000, guid: 60bc6261810b4414d9f8b801117cefa1, type: 3}
+  WoodSound: {fileID: 0}
+  WoodSounds: []
   soundFxObject: {fileID: 710918226026504666, guid: ac96396adcbcc3748bb4b45c6ea38e8b, type: 3}
 --- !u!4 &1493199091
 Transform:
@@ -9144,7 +9183,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.42627716, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -9155,7 +9194,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 1
   serializedVersion: 2
-  m_Size: {x: 150, y: 25}
+  m_Size: {x: 123.57094, y: 25}
   m_EdgeRadius: 0
 --- !u!114 &1952389465
 MonoBehaviour:
@@ -9170,7 +9209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -9269,7 +9308,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 180, y: 50}
+  m_SizeDelta: {x: 150, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1958540429
 GameObject:
@@ -9540,7 +9579,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 180, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2056702860
 MonoBehaviour:
@@ -9619,7 +9658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}

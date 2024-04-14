@@ -6,7 +6,9 @@ using UnityEngine.Rendering;
 public class SoundEfects : MonoBehaviour
 {
     public static SoundEfects instance;
-    [SerializeField] private AudioClip[] WoodSound;
+    [SerializeField] private AudioClip WoodSound;
+
+    [SerializeField] private AudioClip[] WoodSounds;
 
 
     [SerializeField] private AudioSource soundFxObject;
@@ -74,7 +76,12 @@ public class SoundEfects : MonoBehaviour
     }
     public void playsounds()
     {
-        SoundEfects.instance.PlayRandomSoundFxClip(WoodSound, transform, 1f);
+        SoundEfects.instance.PlayRandomSoundFxClip(WoodSounds, transform, 1f);
 
     }
+    public void playOnesound()
+    {
+        SoundEfects.instance.PlaySoundFxClip(WoodSound, transform, 1f);
+    }
+
 }

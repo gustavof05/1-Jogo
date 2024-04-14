@@ -13,7 +13,11 @@ public class ColisoesPlayerMenu : MonoBehaviour
     public GameObject OptionsPanel; 
     public GameObject MainMenu; 
     public GameObject Levels;
-    public float delay = 0.5f;
+
+    //public float delay = 0.5f;
+    public Animator DescerLMenu;
+    public Animator DescerMMenu;
+
 
     [SerializeField] private GameObject _object;
     [SerializeField] private AudioClip[] WoodSound;
@@ -29,8 +33,10 @@ void OnCollisionEnter2D(Collision2D col_ground)
         {           
             //SoundEfects.instance.PlaySoundFxClip(WoodSound, transform, 1f);
             SoundEfects.instance.PlayRandomSoundFxClip(WoodSound, transform, 1f);
-            Invoke("delayFunc",delay);
+            //Invoke("delayFunc",delay); // Fazer funçao de delay
             MainMenu.SetActive(false);
+            Levels.SetActive(true);
+            DescerLMenu.SetFloat("DescerLMenu",1);
         }
         if(col_ground.gameObject.name == "Options")
         {
@@ -49,6 +55,7 @@ void OnCollisionEnter2D(Collision2D col_ground)
             SoundEfects.instance.PlayRandomSoundFxClip(WoodSound, transform, 1f);
             Levels.SetActive(false);
             MainMenu.SetActive(true);
+            DescerMMenu.SetFloat("DescerMMenu",1);
         }
         if(col_ground.gameObject.name == "Level 1")
         {
@@ -67,9 +74,9 @@ void OnCollisionEnter2D(Collision2D col_ground)
         }
     }
 }
-    void delayFunc()
+    /*void delayFunc() //Funçao para fazer delay
     {
         Levels.SetActive(true);
         Debug.Log("Delay");
-    }
+    }*/
 }
