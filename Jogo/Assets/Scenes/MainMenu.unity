@@ -6409,6 +6409,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   EnemyAttacking: 0
+  deathcontroller: {fileID: 738155928}
 --- !u!61 &1290120719
 BoxCollider2D:
   m_ObjectHideFlags: 0

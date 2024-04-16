@@ -12,10 +12,12 @@ public class Enemy : MonoBehaviour
     public LayerMask alvos;  //Camada onde estão os inimigos (para só "acertar" neles)
     public bool EnemyAttacking = false;
     private float timesinceAttack = 0.55f;   //Tempo desde o último ataque (inicial)
-    private float moveTimer = 0f; // Tempo para mover
-    private bool isMovingRight = true; // Flag para indicar direção de movimento
+    private float moveTimer = 0f; //Tempo para mudar de estado
+    private float stopTimer = 0f; //Mudança de estado
+    private bool isMovingRight = true; //Flag para indicar direção de movimento
     private int d = 1;  //Ajustar animação
     private Animator anime;
+    public PlayerHurt_Death deathcontroller;
 
     // Start is called before the first frame update
     void Start()
@@ -33,11 +35,18 @@ public class Enemy : MonoBehaviour
 
     void Move()
     {
+        if(stopTimer > 0)
+        {
+            stopTimer -= Time.deltaTime;
+            anime.SetBool("walk", false);
+        }
         if(moveTimer <= 0)
         {
-            if(isMovingRight) isMovingRight = false; //Inverte a direção de movimento
-            else isMovingRight = true; //Inverte a direção de movimento
+            
+            if(isMovingRight) isMovingRight = false;
+            else isMovingRight = true;
             moveTimer = Random.Range(1f, 3f);   //Inicia o timer de movimento com tempo de espera aleatório entre 1s e 3s
+            stopTimer = Random.Range(2f, 4f);   //Inicia o timer do tempo de espera aleatório entre 3s e 6s
         }
         if(isMovingRight)
         {
@@ -45,13 +54,12 @@ public class Enemy : MonoBehaviour
             transform.Translate(Vector2.right * speed * Time.deltaTime);
             transform.eulerAngles = new Vector3(0f, 0f, 0f);
         }
-        else
+        else if(!isMovingRight)
         {
             anime.SetBool("walk", true);
             transform.Translate(Vector2.left * (-speed) * Time.deltaTime);
             transform.eulerAngles = new Vector3(0f, 180f, 0f);
         }
-        //anime.SetBool("walk", false);
         moveTimer -= Time.deltaTime;
     }
 
@@ -70,7 +78,7 @@ public class Enemy : MonoBehaviour
         {
             EnemyAttacking = true;
             Collider2D[] playersToDamage = Physics2D.OverlapCircleAll(attackpos.position, attackrange, alvos);   //Nº de players no "círculo"
-            if(playersToDamage.Length > 0)
+            if((playersToDamage.Length > 0) && (!deathcontroller.isDead))
             {
                 foreach (Collider2D player in playersToDamage)  //Causa dano aos jogadores dentro do alcance
                 {
