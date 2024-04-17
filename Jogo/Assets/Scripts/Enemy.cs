@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour
     private int d = 1;  //Ajustar animação
     private Animator anime;
     public PlayerHurt_Death deathcontroller;
+    public PlayerBlock blockcontroller;
 
     // Start is called before the first frame update
     void Start()
@@ -39,10 +40,10 @@ public class Enemy : MonoBehaviour
         {
             stopTimer -= Time.deltaTime;
             anime.SetBool("walk", false);
+            return;
         }
         if(moveTimer <= 0)
         {
-            
             if(isMovingRight) isMovingRight = false;
             else isMovingRight = true;
             moveTimer = Random.Range(1f, 3f);   //Inicia o timer de movimento com tempo de espera aleatório entre 1s e 3s
@@ -65,7 +66,6 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int pdamage)
     {
-        //Instantiate(transform.position, Quaternion.identity);
         ehealth -= pdamage;   //Vida do inimigo perde o valor do dano do player
         anime.SetTrigger("hurt");
         Debug.Log("damage taken from player");
@@ -74,7 +74,7 @@ public class Enemy : MonoBehaviour
     void Attack()
     {
         timesinceAttack += Time.deltaTime;  //Conta o tempo
-        if(timesinceAttack > 0.55f) //É possível atacar após 0.55s do último ataque
+        if(timesinceAttack > 0.8f) //É possível atacar após 0.8s do último ataque
         {
             EnemyAttacking = true;
             Collider2D[] playersToDamage = Physics2D.OverlapCircleAll(attackpos.position, attackrange, alvos);   //Nº de players no "círculo"
@@ -83,7 +83,7 @@ public class Enemy : MonoBehaviour
                 foreach (Collider2D player in playersToDamage)  //Causa dano aos jogadores dentro do alcance
                 {
                     anime.SetTrigger("attack"); //"Dispara" o parâmetro attack
-                    player.GetComponent<PlayerHurt_Death>().TakeDamage(edamage);
+                    if(!blockcontroller.isBlock) player.GetComponent<PlayerHurt_Death>().TakeDamage(edamage);
                 }
             }
             timesinceAttack = 0.0f;   //Recomeça a contar o tempo

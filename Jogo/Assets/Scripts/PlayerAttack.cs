@@ -12,13 +12,7 @@ public class PlayerAttack : MonoBehaviour
     private float timesinceAttack = 0.55f;   //Tempo desde o último ataque (inicial)
     private int attackIndex = 1;
     private Animator attanimp;
-    public static PlayerAttack instance;
     public PlayerHurt_Death deathcontroller;
-    
-    private void Awake()
-    {
-        instance = this;
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -30,10 +24,7 @@ public class PlayerAttack : MonoBehaviour
     void Update()
     {
         timesinceAttack += Time.deltaTime;  //Conta o tempo
-        if(!deathcontroller.isDead) //Se não estiver morto
-        {
-            Attack();
-        }
+        if(!deathcontroller.isDead) Attack();//Se não estiver morto
     }
 
     void Attack()
@@ -45,10 +36,7 @@ public class PlayerAttack : MonoBehaviour
             attanimp.SetTrigger("attack" + attackIndex); //"Dispara" o parâmetro attackX [X=attackIndex]
             attackIndex++;  //Aumenta o índice de ataque
             Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackpos.position, attackrange, alvos);   //Nº de alvos/inimigos (cada entidade) no "círculo"
-            for(int i = 0; i < enemiesToDamage.Length; i++)
-            {
-                enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(pdamage);
-            }
+            for(int i = 0; i < enemiesToDamage.Length; i++) enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(pdamage);
             timesinceAttack = 0.0f;   //Recomeça a contar o tempo
         }
     }
