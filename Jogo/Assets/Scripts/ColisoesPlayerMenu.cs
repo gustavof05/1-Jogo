@@ -18,6 +18,7 @@ public class ColisoesPlayerMenu : MonoBehaviour
     public Animator DescerLMenu;
     public Animator DescerMMenu;
 
+    public Animator DescerOMenu;
 
     [SerializeField] private GameObject _object;
     [SerializeField] private AudioClip[] WoodSound;
@@ -43,7 +44,7 @@ void OnCollisionEnter2D(Collision2D col_ground)
             SoundEfects.instance.PlayRandomSoundFxClip(WoodSound, transform, 1f);
             MainMenu.SetActive(false);
             OptionsPanel.SetActive(true);
-            Debug.Log("Ativando");
+            DescerOMenu.SetFloat("DescerOMenu",1);
         }
         if(col_ground.gameObject.name == "Quit")
         {
