@@ -93,6 +93,8 @@ public class Enemy : MonoBehaviour
 
     public void Death()
     {
+        GameController.instance.totalScore += 270;
+        GameController.instance.UpdateScoreText();
         if(d == 1) anime.SetTrigger("death");
         d++;
         Destroy(gameObject, 0.7f); //Desaparecimento do inimigo
