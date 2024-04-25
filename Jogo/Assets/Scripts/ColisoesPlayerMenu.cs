@@ -22,6 +22,7 @@ public class ColisoesPlayerMenu : MonoBehaviour
 
     [SerializeField] private GameObject _object;
     [SerializeField] private AudioClip[] WoodSound;
+    public LevelsMenu menu;
 
 void OnCollisionEnter2D(Collision2D col_ground)
 {
@@ -61,17 +62,17 @@ void OnCollisionEnter2D(Collision2D col_ground)
         if(col_ground.gameObject.name == "Level 1")
         {
             SoundEfects.instance.PlayRandomSoundFxClip(WoodSound, transform, 1f);
-            SceneManager.LoadScene("Nivel 1");
+            menu.LoadLevel("Level 1");
         }
         if(col_ground.gameObject.name == "Level 2")
         {
             SoundEfects.instance.PlayRandomSoundFxClip(WoodSound, transform, 1f);
-            SceneManager.LoadScene("LevelTwo");
+            menu.LoadLevel("LevelTwo");
         }
         if(col_ground.gameObject.name == "Level 3")
         {
             SoundEfects.instance.PlayRandomSoundFxClip(WoodSound, transform, 1f);
-            SceneManager.LoadScene("LevelThree");
+            menu.LoadLevel("LevelThree");
         }
     }
 }
