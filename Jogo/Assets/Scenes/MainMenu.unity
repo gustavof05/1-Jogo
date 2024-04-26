@@ -5415,6 +5415,7 @@ GameObject:
   - component: {fileID: 738155927}
   - component: {fileID: 738155928}
   - component: {fileID: 738155929}
+  - component: {fileID: 738155930}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -5579,6 +5580,7 @@ MonoBehaviour:
   isJumping: 0
   doubleJump: 0
   isFalling: 0
+  anim: {fileID: 0}
   deathcontroller: {fileID: 738155928}
 --- !u!95 &738155924
 Animator:
@@ -5672,6 +5674,19 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ef6e7516379473a4883d66323d3fdc0d, type: 3}
   - {fileID: 8300000, guid: 433dc5ac1faa7e744ad5ebccd8f412bc, type: 3}
   menu: {fileID: 134876523}
+--- !u!114 &738155930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 738155918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d9235ba43f4b5042a399b9f0eafa250, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p: {fileID: 738155923}
 --- !u!1 &738918674
 GameObject:
   m_ObjectHideFlags: 0

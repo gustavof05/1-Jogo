@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     public bool doubleJump;
     public bool isFalling;
     private Rigidbody2D rig;
-    private Animator anim;
+    public Animator anim;
     public PlayerHurt_Death deathcontroller;
 
     // Start is called before the first frame update
@@ -83,21 +83,10 @@ public class Player : MonoBehaviour
             anim.SetBool("jump", false);
             anim.SetBool("fall", false);
         }
-        if(col_ground.gameObject.layer == 7) //7 é o número da layer em que foi posta a camada
-        {
-            isJumping = false;  //Para de saltar
-            isFalling = false;
-            anim.SetBool("jump", false);
-            anim.SetBool("fall", false);
-        }
     }
     void OnCollisionExit2D(Collision2D col_ground)  //Ao sair do chão
     {
         if(col_ground.gameObject.layer == 8) //8 é o número da layer em que foi posta a camada do 'chão'
-        {
-            isJumping = true;   //Começa a saltar
-        }
-        if(col_ground.gameObject.layer == 7) //7 é o número da layer em que foi posta a camada
         {
             isJumping = true;   //Começa a saltar
         }
