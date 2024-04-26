@@ -82,10 +82,7 @@ public class Player : MonoBehaviour
             isFalling = false;
             anim.SetBool("jump", false);
             anim.SetBool("fall", false);
-        
-        
-        }
-        
+       
     }
     void OnCollisionExit2D(Collision2D col_ground)  //Ao sair do chão
     {
