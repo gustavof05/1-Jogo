@@ -83,11 +83,11 @@ public class Player : MonoBehaviour
             anim.SetBool("jump", false);
             anim.SetBool("fall", false);
         } 
+
+
+
     }
 
-
-    
-    
     void OnCollisionExit2D(Collision2D col_ground)  //Ao sair do chão
     {
         if(col_ground.gameObject.layer == 8) //8 é o número da layer em que foi posta a camada do 'chão'
