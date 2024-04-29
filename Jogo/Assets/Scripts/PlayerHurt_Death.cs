@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml;
 using UnityEngine;
 
 public class PlayerHurt_Death : MonoBehaviour
 {
+    public int dtp = 15;
     private Animator hdanim;
     public bool isDead = false;
     public PlayerAttack p;
@@ -26,7 +28,7 @@ public class PlayerHurt_Death : MonoBehaviour
         {
             p.phealth -= edamage; //Vida do player perde o valor do dano do inimigo
             hdanim.SetTrigger("hurt");
-            GameController.instance.totalScore -= 15;
+            GameController.instance.totalScore -= dtp;
             GameController.instance.UpdateScoreText();
         }
     }
