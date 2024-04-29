@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     public bool doubleJump;
     public bool isFalling;
     private Rigidbody2D rig;
-    private Animator anim;
+    public Animator anim;
     public PlayerHurt_Death deathcontroller;
 
     // Start is called before the first frame update
