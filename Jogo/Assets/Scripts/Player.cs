@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     public bool doubleJump;
     public bool isFalling;
     private Rigidbody2D rig;
-    public Animator anim;
+    private Animator anim;
     public PlayerHurt_Death deathcontroller;
 
     // Start is called before the first frame update
@@ -83,7 +83,7 @@ public class Player : MonoBehaviour
             anim.SetBool("jump", false);
             anim.SetBool("fall", false);
         } 
-
+        
     }
     void OnCollisionExit2D(Collision2D col_ground)  //Ao sair do chão
     {
