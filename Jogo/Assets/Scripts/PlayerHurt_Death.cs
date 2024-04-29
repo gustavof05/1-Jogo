@@ -6,6 +6,7 @@ public class PlayerHurt_Death : MonoBehaviour
 {
     private Animator hdanim;
     public bool isDead = false;
+    public PlayerAttack p;
 
     // Start is called before the first frame update
     void Start()
@@ -16,24 +17,25 @@ public class PlayerHurt_Death : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!isDead) 
-        {
-            Hurt();
-            Death();
-        }
+        if(!isDead && (p.phealth <= 0)) Death();
     }
 
-    void Hurt()
+    public void TakeDamage(int edamage)
     {
-        if (Input.GetKeyDown("q")) hdanim.SetTrigger("hurt");
+        if(!isDead)
+        {
+            p.phealth -= edamage; //Vida do player perde o valor do dano do inimigo
+            hdanim.SetTrigger("hurt");
+            GameController.instance.totalScore -= 15;
+            GameController.instance.UpdateScoreText();
+        }
     }
 
     void Death()
     {
-        if (Input.GetKeyDown("e"))
-        {
-            hdanim.SetTrigger("death");
-            isDead = true;  //Está morto
-        }
+        GameController.instance.totalScore = 0;
+        GameController.instance.UpdateScoreText();
+        hdanim.SetTrigger("death");
+        isDead = true;  //Está morto
     }        
 }
