@@ -84,6 +84,9 @@ public class Player : MonoBehaviour
             anim.SetBool("fall", false);
         } 
     }
+
+
+    
     
     void OnCollisionExit2D(Collision2D col_ground)  //Ao sair do chão
     {
