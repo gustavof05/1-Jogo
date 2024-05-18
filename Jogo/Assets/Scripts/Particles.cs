@@ -10,8 +10,7 @@ public class Particles : MonoBehaviour
     public GameObject botao;
     public GameObject[] botoes;
 
-    [SerializeField]
-    private GameObject _object;
+    [SerializeField] private GameObject _object;
 
     public void Spawn()
     {

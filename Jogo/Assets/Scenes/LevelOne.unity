@@ -37188,7 +37188,7 @@ Transform:
   m_GameObject: {fileID: 844402322}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -6.194009}
+  m_LocalPosition: {x: 0, y: 0, z: -6.194008}
   m_LocalScale: {x: 0.61940086, y: 0.61940086, z: 0.61940086}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -40614,7 +40614,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d1033e29931cbc498616f9956dc1b38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dtp: 15
   isDead: 0
+  p: {fileID: 1380012537}
 --- !u!114 &1380012536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40627,6 +40629,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 602a31aa3be3d68459a0132b2ca63023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isBlock: 0
   deathcontroller: {fileID: 1380012535}
 --- !u!114 &1380012537
 MonoBehaviour:
@@ -40640,14 +40643,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e80a40753fdb05748bd72506e9bdf90f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  phealth: 22
+  pdamage: 3
   attackpos: {fileID: 532666396}
-  attackrange: 1
-  damage: 3
-  inimigos:
+  attackrange: 0.45
+  alvos:
     serializedVersion: 2
-    m_Bits: 512
-  attanim: {fileID: 0}
-  isAttacking: 0
+    m_Bits: 0
   deathcontroller: {fileID: 1380012535}
 --- !u!114 &1380012538
 MonoBehaviour:
@@ -40666,12 +40668,8 @@ MonoBehaviour:
   isJumping: 0
   doubleJump: 0
   isFalling: 0
+  anim: {fileID: 0}
   deathcontroller: {fileID: 1380012535}
-  OptionsPanel: {fileID: 0}
-  MainMenu: {fileID: 0}
-  Levels: {fileID: 0}
-  delay: 1
-  _object: {fileID: 0}
 --- !u!61 &1380012539
 BoxCollider2D:
   m_ObjectHideFlags: 0

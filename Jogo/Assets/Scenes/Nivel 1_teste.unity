@@ -19647,7 +19647,7 @@ GameObject:
   m_Component:
   - component: {fileID: 294742439}
   - component: {fileID: 294742438}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stone1 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43483,7 +43483,7 @@ GameObject:
   - component: {fileID: 1644938412}
   - component: {fileID: 1644938414}
   - component: {fileID: 1644938413}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BackGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47689,8 +47689,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   EnemyAttacking: 0
-  deathcontroller: {fileID: 0}
-  blockcontroller: {fileID: 0}
+  deathcontroller: {fileID: 974406695}
+  blockcontroller: {fileID: 974406696}
 --- !u!61 &2032364273
 BoxCollider2D:
   m_ObjectHideFlags: 0

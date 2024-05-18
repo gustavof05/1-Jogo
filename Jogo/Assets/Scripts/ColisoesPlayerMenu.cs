@@ -62,7 +62,7 @@ void OnCollisionEnter2D(Collision2D col_ground)
         if(col_ground.gameObject.name == "Level 1")
         {
             SoundEfects.instance.PlayRandomSoundFxClip(WoodSound, transform, 1f);
-            menu.LoadLevel("Nivel 1");
+            menu.LoadLevel("LevelOne");
         }
         if(col_ground.gameObject.name == "Level 2")
         {
