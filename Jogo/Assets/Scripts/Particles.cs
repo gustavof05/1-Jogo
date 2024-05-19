@@ -19,12 +19,18 @@ public class Particles : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D other)
     {
+    Vector2 contactNormal = other.GetContact(0).normal;
+
+    // Verifica se a normal da colisão está apontando para cima
+    if (contactNormal.y > 0)
+    {
         if(other.gameObject == _player)
         {
             foreach (GameObject botao in botoes)
             {
-                Instantiate(_object, botao.transform.position, Quaternion.identity);
+             Instantiate(_object, botao.transform.position, Quaternion.identity);
             }
         }
+    }
     }
 }

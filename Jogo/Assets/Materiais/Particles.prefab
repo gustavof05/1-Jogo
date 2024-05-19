@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5272011389380370554}
   - component: {fileID: 8435996271578010302}
   - component: {fileID: 4850775871016981908}
+  - component: {fileID: -3743384964481796532}
   m_Layer: 0
   m_Name: Particles
   m_TagString: Untagged
@@ -4888,3 +4889,21 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &-3743384964481796532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034448509840778827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 594b9b6414bd0b949842e0db0259f733, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WoodSound:
+  - {fileID: 8300000, guid: cb316b7125084ee468ebc8d46c0f21fa, type: 3}
+  - {fileID: 8300000, guid: 60bc6261810b4414d9f8b801117cefa1, type: 3}
+  - {fileID: 8300000, guid: b5db662eb9cb5cd4aac23cc42fa2495a, type: 3}
+  - {fileID: 8300000, guid: b994c64665ab6fe4683c28396f72688f, type: 3}
+  soundFxObject: {fileID: 0}

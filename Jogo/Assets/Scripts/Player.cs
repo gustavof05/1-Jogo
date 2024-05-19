@@ -12,24 +12,14 @@ public class Player : MonoBehaviour
     public bool doubleJump;
     public bool isFalling;
     private Rigidbody2D rig;
-    private Animator anim;
+    public Animator anim;
     public PlayerHurt_Death deathcontroller;
-    public GameObject OptionsPanel; 
-    public GameObject MainMenu; 
-    public GameObject Levels;
-    public float delay = 1f;
-
-    [SerializeField]
-    private GameObject _object;
 
     // Start is called before the first frame update
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        
-        // Desativar OptionsPanel no início
-        OptionsPanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -93,46 +83,11 @@ public class Player : MonoBehaviour
             anim.SetBool("jump", false);
             anim.SetBool("fall", false);
         } 
-        if(col_ground.gameObject.name == "Start")
-        {
-            MainMenu.SetActive(false);
-            Invoke("delayFunc",delay);
-        }
-        if(col_ground.gameObject.name == "Options")
-        {
-            MainMenu.SetActive(false);
-            OptionsPanel.SetActive(true);
-            Debug.Log("Ativando");
-        }
-        if(col_ground.gameObject.name == "Quit")
-        {
-            Application.Quit();
-            Debug.Log("Game is exiting");
-        }
-        if(col_ground.gameObject.name == "Cancel")
-        {
-            Levels.SetActive(false);
-            MainMenu.SetActive(true);
-        }
-        if(col_ground.gameObject.name == "Level 1")
-        {
-            SceneManager.LoadScene("LevelOne");
-        }
-        if(col_ground.gameObject.name == "Level 2")
-        {
-            SceneManager.LoadScene("LevelTwo");
-        }
-        if(col_ground.gameObject.name == "Level 3")
-        {
-            SceneManager.LoadScene("LevelThree");
-        }
+        
     }
     void OnCollisionExit2D(Collision2D col_ground)  //Ao sair do chão
     {
-        if(col_ground.gameObject.layer == 8) //8 é o número da layer em que foi posta a camada do 'chão'
-        {
-            isJumping = true;   //Começa a saltar
-        }
+        if(col_ground.gameObject.layer == 8) isJumping = true;  //Começa a saltar //8 é o número da layer em que foi posta a camada do 'chão'
     }
 
     void UpdateAnimations()
@@ -156,10 +111,5 @@ public class Player : MonoBehaviour
             anim.SetBool("jump", false);
             anim.SetBool("fall", false);
         }
-    }
-    void delayFunc()
-    {
-        Levels.SetActive(true);
-        Debug.Log("Delay");
     }
 }
