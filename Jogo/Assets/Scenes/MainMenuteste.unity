@@ -1520,10 +1520,12 @@ MonoBehaviour:
   Levels: {fileID: 1157837927}
   Options: {fileID: 1348318779}
   Audiomenu: {fileID: 1441328445}
+  Controllersmenu: {fileID: 0}
   DescerLMenu: {fileID: 1157837932}
   DescerMMenu: {fileID: 274946082}
   DescerOMenu: {fileID: 1348318784}
   DescerAMenu: {fileID: 1441328447}
+  DescerCMenu: {fileID: 0}
 --- !u!114 &274946075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5571,6 +5573,7 @@ MonoBehaviour:
   isFalling: 0
   anim: {fileID: 0}
   deathcontroller: {fileID: 738155928}
+  gamemode1_2: {fileID: 0}
 --- !u!95 &738155924
 Animator:
   serializedVersion: 5
@@ -5612,6 +5615,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   deathcontroller: {fileID: 738155928}
+  gamemode1_2: {fileID: 0}
 --- !u!114 &738155927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5626,6 +5630,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBlock: 0
   deathcontroller: {fileID: 738155928}
+  gamemode1_2: {fileID: 0}
 --- !u!114 &738155928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5640,7 +5645,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dtp: 15
   isDead: 0
-  p: {fileID: 738155925}
+  p1: {fileID: 0}
+  p2: {fileID: 0}
 --- !u!114 &738155929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5677,7 +5683,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d9235ba43f4b5042a399b9f0eafa250, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pc: {fileID: 738155923}
+  pc1: {fileID: 0}
+  pc2: {fileID: 0}
 --- !u!1 &738918674
 GameObject:
   m_ObjectHideFlags: 0

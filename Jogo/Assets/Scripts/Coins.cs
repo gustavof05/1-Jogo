@@ -20,13 +20,7 @@ public class Coins : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collider.gameObject.tag == "Player1")
-        {
-            GameController.instance.totalScore += Score;
-            GameController.instance.UpdateScoreText();
-            Destroy(gameObject);
-        }
-        if(collider.gameObject.tag == "Player2")
+        if(collider.gameObject.tag == "Player")
         {
             GameController.instance.totalScore += Score;
             GameController.instance.UpdateScoreText();
