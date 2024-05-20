@@ -20,8 +20,5 @@ public class LevelsMenu : MonoBehaviour
         transition.SetTrigger("start");
         yield return new WaitForSeconds(transitiontime);
         SceneManager.LoadScene(SceneName);
-
-       
-
     }
 }
