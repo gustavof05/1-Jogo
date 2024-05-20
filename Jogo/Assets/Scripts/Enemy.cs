@@ -18,7 +18,8 @@ public class Enemy : MonoBehaviour
     private int d = 1;  //Ajustar animação
     private Animator anime;
     public PlayerHurt_Death deathcontroller;
-    public PlayerBlock blockcontroller;
+    public PlayerBlock1 blockcontroller1;
+    public PlayerBlock2 blockcontroller2;
 
     // Start is called before the first frame update
     void Start()
@@ -83,7 +84,8 @@ public class Enemy : MonoBehaviour
                 foreach (Collider2D player in playersToDamage)  //Causa dano aos jogadores dentro do alcance
                 {
                     anime.SetTrigger("attack"); //"Dispara" o parâmetro attack
-                    if(!blockcontroller.isBlock) player.GetComponent<PlayerHurt_Death>().TakeDamage(edamage);
+                    if(!blockcontroller1.isBlock) player.GetComponent<PlayerHurt_Death>().TakeDamage(edamage);
+                    if(!blockcontroller2.isBlock) player.GetComponent<PlayerHurt_Death>().TakeDamage(edamage);
                 }
             }
             timesinceAttack = 0.0f;   //Recomeça a contar o tempo
