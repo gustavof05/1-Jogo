@@ -14,7 +14,7 @@ public class Player1 : MonoBehaviour
     private Rigidbody2D rig;
     public Animator anim;
     public PlayerHurt_Death deathcontroller;
-    [SerializeField] GameModeSelector1 gamemode1_2;
+    [SerializeField] GameModeSelector1 gamemodecontroller1;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +22,7 @@ public class Player1 : MonoBehaviour
         rig = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         
-        gamemode1_2.gamemode1_1 = 1;
+        gamemodecontroller1.gamemode1_1 = PlayerPrefs.GetInt("controller");
     }
 
     // Update is called once per frame
@@ -40,7 +40,7 @@ public class Player1 : MonoBehaviour
     {
         float move1 = Input.GetAxis("Horizontal Joystick 1");
         float move2 = Input.GetAxis("Horizontal 1");
-        if(gamemode1_2.gamemode1_1 == 1)
+        if(gamemodecontroller1.gamemode1_1 == 1)
         {
             if(move2 != 0f)
             {
@@ -59,7 +59,7 @@ public class Player1 : MonoBehaviour
             }
             else anim.SetBool("walk", false);
         }
-        else if(gamemode1_2.gamemode1_1 == 2)
+        else if(gamemodecontroller1.gamemode1_1 == 2)
         {
             if(move1 != 0f)
             {
@@ -84,7 +84,7 @@ public class Player1 : MonoBehaviour
 
     void Jump()
     {
-        if(gamemode1_2.gamemode1_1 == 1)
+        if(gamemodecontroller1.gamemode1_1 == 1)
         {
             if(Input.GetKeyDown(KeyCode.UpArrow)) //Ao "clicar" no saltar
             {
@@ -105,7 +105,7 @@ public class Player1 : MonoBehaviour
                 }
             }
         }
-        else if (gamemode1_2.gamemode1_1 == 2)
+        else if (gamemodecontroller1.gamemode1_1 == 2)
         {
             if(Input.GetButtonDown("Jump Joystick 1")) //Ao "clicar" no saltar
             {

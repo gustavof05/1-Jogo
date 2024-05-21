@@ -6,7 +6,7 @@ public class ColisaoMenus : MonoBehaviour
 {
     public Player1 pc1;
     public Player2 pc2;
-void OnCollisionEnter2D(Collision2D col_ground) //Ao colidir com o chão
+void OnCollisionEnter2D(Collision2D col_ground) //Ao colidir com o meu
     {
         if(col_ground.gameObject.layer == 7) //7 é o número da layer em que foi posta a camada
         {
@@ -23,7 +23,7 @@ void OnCollisionEnter2D(Collision2D col_ground) //Ao colidir com o chão
     }
         void OnCollisionExit2D(Collision2D col_ground)  //Ao sair do chão
     {
-        if(col_ground.gameObject.layer == 7) //7 é o número da layer em que foi posta a camada
+        if(col_ground.gameObject.layer == 7 && col_ground.gameObject == pc1 || col_ground.gameObject.layer == 7 && col_ground.gameObject == pc2 ) //7 é o número da layer em que foi posta a camada
         {
             pc1.isJumping = true;
             pc2.isJumping = true;   //Começa a saltar
