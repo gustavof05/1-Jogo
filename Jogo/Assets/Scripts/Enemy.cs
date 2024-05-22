@@ -71,8 +71,10 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int pdamage)
     {
-        ehealth -= pdamage;   //Vida do inimigo perde o valor do dano do player
+        ehealth -= pdamage;   //Vida do inimigo perde o valor do dano do player  
         anime.SetTrigger("hurt");
+        GameController.instance.totalScore += 10;
+        GameController.instance.UpdateScoreText();
     }
 
     void Attack()
