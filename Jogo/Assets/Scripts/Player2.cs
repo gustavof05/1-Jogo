@@ -13,7 +13,7 @@ public class Player2 : MonoBehaviour
     public bool isFalling;
     private Rigidbody2D rig;
     public Animator anim;
-    public PlayerHurt_Death deathcontroller;
+    public PlayerHurt_Death2 deathcontroller;
     [SerializeField] GameModeSelector2 gamemodecontroller2;
 
     // Start is called before the first frame update

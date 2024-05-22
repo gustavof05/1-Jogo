@@ -5,23 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class PassadeFase : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private bool player1Collided = false;
+    private bool player2Collided = false;
+
+    void OnTriggerEnter2D(Collider2D collider)
     {
-        
+        if(collider.gameObject.tag == "Player1") player1Collided = true;
+        else if(collider.gameObject.tag == "Player2") player2Collided = true;
+        if(player1Collided && player2Collided) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnTriggerExit2D(Collider2D collider)
     {
-        
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
+        if(collider.gameObject.tag == "Player1") player1Collided = false;
+        else if(collider.gameObject.tag == "Player2") player2Collided = false;
     }
 }

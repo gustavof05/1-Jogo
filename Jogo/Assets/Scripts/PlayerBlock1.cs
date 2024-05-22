@@ -6,7 +6,7 @@ public class PlayerBlock1 : MonoBehaviour
 {
     public bool isBlock = false;
     private Animator blanim;
-    public PlayerHurt_Death deathcontroller;
+    public PlayerHurt_Death1 deathcontroller;
     [SerializeField] GameModeSelector1 gamemode1_2;
 
     // Start is called before the first frame update

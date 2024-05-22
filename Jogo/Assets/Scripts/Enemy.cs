@@ -17,7 +17,8 @@ public class Enemy : MonoBehaviour
     private bool isMovingRight = true; //Flag para indicar direção de movimento
     private int d = 1;  //Ajustar animação
     private Animator anime;
-    public PlayerHurt_Death deathcontroller;
+    public PlayerHurt_Death1 deathcontroller1;
+    public PlayerHurt_Death2 deathcontroller2;
     public PlayerBlock1 blockcontroller1;
     public PlayerBlock2 blockcontroller2;
 
@@ -30,8 +31,11 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move();
-        Attack();
+        if(ehealth > 0)
+        {
+            Move();
+            Attack();
+        }
         if(ehealth <= 0) Death();
     }
 
@@ -69,7 +73,6 @@ public class Enemy : MonoBehaviour
     {
         ehealth -= pdamage;   //Vida do inimigo perde o valor do dano do player
         anime.SetTrigger("hurt");
-        Debug.Log("damage taken from player");
     }
 
     void Attack()
@@ -79,13 +82,21 @@ public class Enemy : MonoBehaviour
         {
             EnemyAttacking = true;
             Collider2D[] playersToDamage = Physics2D.OverlapCircleAll(attackpos.position, attackrange, alvos);   //Nº de players no "círculo"
-            if((playersToDamage.Length > 0) && (!deathcontroller.isDead))
+            if(playersToDamage.Length > 0)
             {
-                foreach (Collider2D player in playersToDamage)  //Causa dano aos jogadores dentro do alcance
+                foreach (Collider2D player in playersToDamage)
                 {
-                    anime.SetTrigger("attack"); //"Dispara" o parâmetro attack
-                    if(!blockcontroller1.isBlock) player.GetComponent<PlayerHurt_Death>().TakeDamage(edamage);
-                    if(!blockcontroller2.isBlock) player.GetComponent<PlayerHurt_Death>().TakeDamage(edamage);
+                    //Verifica se o jogador é Player1 ou Player2 e aplica o dano de acordo
+                    if (player.CompareTag("Player1") && !deathcontroller1.isDead)
+                    {
+                        anime.SetTrigger("attack"); //"Dispara" o parâmetro attack
+                        if (!blockcontroller1.isBlock) player.GetComponent<PlayerHurt_Death1>().TakeDamage(edamage);
+                    }
+                    else if (player.CompareTag("Player2") && !deathcontroller2.isDead)
+                    {
+                        anime.SetTrigger("attack"); //"Dispara" o parâmetro attack
+                        if (!blockcontroller2.isBlock) player.GetComponent<PlayerHurt_Death2>().TakeDamage(edamage);
+                    }
                 }
             }
             timesinceAttack = 0.0f;   //Recomeça a contar o tempo
@@ -95,9 +106,12 @@ public class Enemy : MonoBehaviour
 
     public void Death()
     {
-        GameController.instance.totalScore += 270;
-        GameController.instance.UpdateScoreText();
-        if(d == 1) anime.SetTrigger("death");
+        if(d == 1) 
+        {
+            anime.SetTrigger("death");
+            GameController.instance.totalScore += 270;
+            GameController.instance.UpdateScoreText();
+        }
         d++;
         Destroy(gameObject, 0.7f); //Desaparecimento do inimigo
     }
