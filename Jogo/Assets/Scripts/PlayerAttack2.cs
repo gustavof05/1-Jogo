@@ -12,7 +12,7 @@ public class PlayerAttack2 : MonoBehaviour
     private float timesinceAttack = 0.55f;   //Tempo desde o último ataque (inicial)
     private int attackIndex = 1;
     private Animator attanimp;
-    public PlayerHurt_Death deathcontroller;
+    public PlayerHurt_Death2 deathcontroller;
     [SerializeField] GameModeSelector2 gamemode2_2;
 
     // Start is called before the first frame update
