@@ -34,9 +34,9 @@ public class PlayerHurt_Death2 : MonoBehaviour
 
     void Death()
     {
+        hdanim.SetTrigger("death");
         GameController.instance.totalScore -= 300;
         GameController.instance.UpdateScoreText();
-        hdanim.SetTrigger("death");
         isDead = true;  //Está morto
     }
 }

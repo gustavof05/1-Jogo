@@ -6305,6 +6305,9 @@ MonoBehaviour:
     m_Bits: 512
   deathcontroller: {fileID: 738155928}
   gamemode1_2: {fileID: 738155929}
+  sword1: []
+  sword2: {fileID: 0}
+  sword3: []
 --- !u!114 &738155928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6317,10 +6320,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d1033e29931cbc498616f9956dc1b38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dtp: 15
   isDead: 0
   p1: {fileID: 738155925}
-  p2: {fileID: 1013353382}
 --- !u!114 &738155929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7370,7 +7371,7 @@ MonoBehaviour:
   doubleJump: 0
   isFalling: 0
   anim: {fileID: 1834929594}
-  deathcontroller: {fileID: 1834929589}
+  deathcontroller: {fileID: 1834929597}
   gamemodecontroller2: {fileID: 1834929591}
 --- !u!114 &1013353382
 MonoBehaviour:
@@ -7391,8 +7392,11 @@ MonoBehaviour:
   alvos:
     serializedVersion: 2
     m_Bits: 512
-  deathcontroller: {fileID: 1834929589}
+  deathcontroller: {fileID: 1834929597}
   gamemode2_2: {fileID: 1834929591}
+  sword1: []
+  sword2: {fileID: 0}
+  sword3: []
 --- !u!1 &1016466369
 GameObject:
   m_ObjectHideFlags: 0
@@ -11407,9 +11411,9 @@ GameObject:
   - component: {fileID: 1834929591}
   - component: {fileID: 1013353382}
   - component: {fileID: 1834929590}
-  - component: {fileID: 1834929589}
   - component: {fileID: 1834929588}
   - component: {fileID: 1834929587}
+  - component: {fileID: 1834929597}
   m_Layer: 10
   m_Name: Player2
   m_TagString: Player
@@ -11455,22 +11459,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pc1: {fileID: 738155923}
   pc2: {fileID: 1013353380}
---- !u!114 &1834929589
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1834929586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d1033e29931cbc498616f9956dc1b38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dtp: 15
-  isDead: 0
-  p1: {fileID: 738155925}
-  p2: {fileID: 1013353382}
 --- !u!114 &1834929590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11484,7 +11472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBlock: 0
-  deathcontroller: {fileID: 1834929589}
+  deathcontroller: {fileID: 1834929597}
   gamemode2_2: {fileID: 1834929591}
 --- !u!114 &1834929591
 MonoBehaviour:
@@ -11662,6 +11650,20 @@ Transform:
   - {fileID: 1787690624}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1834929597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834929586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f846b5d013884dd428b3355bad1baa79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDead: 0
+  p2: {fileID: 1013353382}
 --- !u!1 &1846534162
 GameObject:
   m_ObjectHideFlags: 0

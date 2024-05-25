@@ -21,6 +21,8 @@ public class Enemy : MonoBehaviour
     public PlayerHurt_Death2 deathcontroller2;
     public PlayerBlock1 blockcontroller1;
     public PlayerBlock2 blockcontroller2;
+    [SerializeField] private AudioClip swordsound;
+
 
     // Start is called before the first frame update
     void Start()
@@ -92,11 +94,13 @@ public class Enemy : MonoBehaviour
                     if (player.CompareTag("Player1") && !deathcontroller1.isDead)
                     {
                         anime.SetTrigger("attack"); //"Dispara" o parâmetro attack
+                        SoundEfects.instance.PlaySoundFxClip(swordsound,transform,1f);
                         if (!blockcontroller1.isBlock) player.GetComponent<PlayerHurt_Death1>().TakeDamage(edamage);
                     }
                     else if (player.CompareTag("Player2") && !deathcontroller2.isDead)
                     {
                         anime.SetTrigger("attack"); //"Dispara" o parâmetro attack
+                        SoundEfects.instance.PlaySoundFxClip(swordsound,transform,1f);
                         if (!blockcontroller2.isBlock) player.GetComponent<PlayerHurt_Death2>().TakeDamage(edamage);
                     }
                 }

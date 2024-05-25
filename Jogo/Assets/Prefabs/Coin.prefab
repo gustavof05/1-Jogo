@@ -156,3 +156,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Score: 100
+  coinsound: {fileID: 8300000, guid: 13db11c7db3744d4c8d25736efb6cec2, type: 3}

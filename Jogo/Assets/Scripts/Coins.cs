@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Coins : MonoBehaviour
 {
-    public int Score;
+    public int Score;   
+     [SerializeField] private AudioClip coinsound;
+
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +26,7 @@ public class Coins : MonoBehaviour
         {
             GameController.instance.totalScore += Score;
             GameController.instance.UpdateScoreText();
+            SoundEfects.instance.PlaySoundFxClip(coinsound,transform,1f);
             Destroy(gameObject);
         }
     }

@@ -16,6 +16,12 @@ public class PlayerAttack1 : MonoBehaviour
     public PlayerHurt_Death1 deathcontroller;
     [SerializeField] GameModeSelector1 gamemode1_2;
 
+     [SerializeField] private AudioClip[] sword1;
+
+     [SerializeField] private AudioClip sword2;
+
+     [SerializeField] private AudioClip[] sword3;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +45,11 @@ public class PlayerAttack1 : MonoBehaviour
                 if (attackIndex > 3) attackIndex = 1;   //Se tiver feito o 3ºataque, volta ao 1º
                 if (timesinceAttack > 1.0f) attackIndex = 1;    //Se tiver passado 1s após o último ataque, volta ao 1º
                 attanimp.SetTrigger("attack" + attackIndex); //"Dispara" o parâmetro attackX [X=attackIndex]
+
+                if (attackIndex == 1){SoundEfects.instance.PlayRandomSoundFxClip(sword1,transform,1f);}
+                else if (attackIndex == 2){SoundEfects.instance.PlaySoundFxClip(sword2,transform,1f);}
+                else{SoundEfects.instance.PlayRandomSoundFxClip(sword3,transform,1f);}
+
                 attackIndex++;  //Aumenta o índice de ataque
                 Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackpos.position, attackrange, alvos);   //Nº de alvos/inimigos (cada entidade) no "círculo"
                 for(int i = 0; i < enemiesToDamage.Length; i++) enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(pdamage);
@@ -52,6 +63,11 @@ public class PlayerAttack1 : MonoBehaviour
                 if (attackIndex > 3) attackIndex = 1;   //Se tiver feito o 3ºataque, volta ao 1º
                 if (timesinceAttack > 1.0f) attackIndex = 1;    //Se tiver passado 1s após o último ataque, volta ao 1º
                 attanimp.SetTrigger("attack" + attackIndex); //"Dispara" o parâmetro attackX [X=attackIndex]
+
+                if (attackIndex == 1){SoundEfects.instance.PlayRandomSoundFxClip(sword1,transform,1f);}
+                else if (attackIndex == 2){SoundEfects.instance.PlaySoundFxClip(sword2,transform,1f);}
+                else{SoundEfects.instance.PlayRandomSoundFxClip(sword3,transform,1f);}
+
                 attackIndex++;  //Aumenta o índice de ataque
                 Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackpos.position, attackrange, alvos);   //Nº de alvos/inimigos (cada entidade) no "círculo"
                 for(int i = 0; i < enemiesToDamage.Length; i++) enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(pdamage);
