@@ -75,8 +75,8 @@ public class Enemy : MonoBehaviour
     {
         ehealth -= pdamage;   //Vida do inimigo perde o valor do dano do player  
         anime.SetTrigger("hurt");
-        GameController.instance.totalScore += 10;
-        GameController.instance.UpdateScoreText();
+        GameController.instance.UpdateScore(10);
+        PlayerPrefs.SetInt("score",GameController.instance.totalScore);
     }
 
     void Attack()
@@ -115,8 +115,9 @@ public class Enemy : MonoBehaviour
         if(d == 1) 
         {
             anime.SetTrigger("death");
-            GameController.instance.totalScore += 270;
-            GameController.instance.UpdateScoreText();
+            GameController.instance.UpdateScore(270);
+
+            PlayerPrefs.SetInt("score",GameController.instance.totalScore);
         }
         d++;
         Destroy(gameObject, 0.7f); //Desaparecimento do inimigo

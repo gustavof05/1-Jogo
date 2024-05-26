@@ -27,16 +27,16 @@ public class PlayerHurt_Death2 : MonoBehaviour
         {
             p2.phealth -= edamage;
             hdanim.SetTrigger("hurt");
-            GameController.instance.totalScore -= 15;
-            GameController.instance.UpdateScoreText();
+            GameController.instance.UpdateScore(-15);
+            PlayerPrefs.SetInt("score",GameController.instance.totalScore);
         }
     }
 
     void Death()
     {
         hdanim.SetTrigger("death");
-        GameController.instance.totalScore -= 300;
-        GameController.instance.UpdateScoreText();
+        GameController.instance.UpdateScore(-300);
+        PlayerPrefs.SetInt("score",GameController.instance.totalScore);
         isDead = true;  //Está morto
     }
 }
